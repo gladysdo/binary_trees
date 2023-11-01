@@ -12,18 +12,9 @@ binary_tree_t *binary_tree_uncle(binary_tree_t *node)
 	{
 		return (NULL);
 	}
-	binary_tree_t *grandparent = node->parent->parent;
-
-	if (grandparent->left == node->parent)
+	if (node->parent->parent->left == node)
 	{
-		return (grandparent->right);
+		return (node->parent->parent->right);
 	}
-	else if (grandparent->right == node->parent)
-	{
-		return (grandparent->left);
-	}
-	else
-	{
-		return (NULL);
-	}
+	return (node->parent->left);
 }
